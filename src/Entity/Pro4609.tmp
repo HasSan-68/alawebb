@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\ProductRepository;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass=ProductRepository::class)
+ */
+class Product
+{
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $naam;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $omschrijving;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getNaam(): ?string
+    {
+        return $this->naam;
+    }
+
+    public function setNaam(?string $naam): self
+    {
+        $this->naam = $naam;
+
+        return $this;
+    }
+
+    public function getOmschrijving(): ?string
+    {
+        return $this->omschrijving;
+    }
+
+    public function setOmschrijving(?string $omschrijving): self
+    {
+        $this->omschrijving = $omschrijving;
+
+        return $this;
+    }
+}
