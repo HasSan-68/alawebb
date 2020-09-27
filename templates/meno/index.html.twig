@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Meno index{% endblock %}
+
+{% block body %}
+    <h1>Meno index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Updated_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for meno in menos %}
+            <tr>
+                <td>{{ meno.id }}</td>
+                <td>{{ meno.title }}</td>
+                <td>{{ meno.content }}</td>
+                <td>{{ meno.updatedAt ? meno.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('meno_show', {'id': meno.id}) }}">show</a>
+                    <a href="{{ path('meno_edit', {'id': meno.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('meno_new') }}">Create new</a>
+{% endblock %}

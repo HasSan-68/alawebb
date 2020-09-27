@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Meno{% endblock %}
+
+{% block body %}
+    <h1>Edit Meno</h1>
+
+    {{ include('meno/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('meno_index') }}">back to list</a>
+
+    {{ include('meno/_delete_form.html.twig') }}
+{% endblock %}
